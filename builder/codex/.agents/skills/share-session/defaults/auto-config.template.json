@@ -1,0 +1,8 @@
+{
+  "enabled": true,
+  "idleMinutes": 30,
+  "minUserTurns": 20,
+  "scanIntervalMinutes": 5,
+  "allowProjects": [],
+  "blockSessionIds": []
+}
