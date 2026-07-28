@@ -5,19 +5,19 @@
 除小修/Hotfix（≤30min）外，任何新项目或较大功能**结构未定不得写实现代码**：先把确认过的目录结构结论（核心模块、边界、耦合）写进 `PLAN.md`——可提方案或反问引导老大给出，但须就 2-3 个关键划分点讲清取舍、经确认再动码。结构定了就严格照它开发，小功能归入已有目录；一旦改动越界或耦合明显不对，停下升级到系统层重议（既有代码先重构、后搬家）。
 
 ## 开发规范
-**设计阶段**：查资料用 `WebSearch`/`WebFetch`，`deep-research` 仅在老大显式说"deep-research"/"对抗式核查"时用；写代码前先做 GitHub 调研（`WebSearch` 搜开源实现），能复用就复用，结论附来源、别只给结论。
+**设计阶段**：查资料用联网搜索/网页抓取；深度对抗式核查仅在老大显式说"deep-research"/"对抗式核查"时做；写代码前先做 GitHub 调研（联网搜索开源实现），能复用就复用，结论附来源、别只给结论。
 
-**开发阶段**：按复杂度选轨道——小修/Hotfix（≤30min）走 `+quick` 起 `hotfix/<slug>`；功能或重大 Bug 走 `+issue` → `+branch`。
+**开发阶段**：按复杂度选轨道——小修/Hotfix（≤30min）直接起 `hotfix/<slug>` 分支；功能或重大 Bug 先建 issue 再开分支（完整流程见 `team-collab` skill）。
 
 **验证阶段**：自验优先——能跑命令就跑、能读日志就读、能自修就修；本轮问题全解决后再把"需老大确认的事"一次性列出，别每步都问。
 
-**发布阶段**：写完跑 `+ci`，绿后老大说"提交"/"push"/"合并"/"ship" 就用 team-collab 自动推到 main（规则见 team-collab skill）；`+review` 仅在老大显式说时触发。
+**发布阶段**：写完跑 CI/测试，绿后老大说"提交"/"push"/"合并"/"ship" 再推 main（流程见 `team-collab` skill）；代码评审仅在老大显式要求时做。
 
 ## 链接/工具路由
 按"域名最具体者接"：
-- 企微域名（`doc.weixin.qq.com`、`page.weixin.qq.com` 等）→ `wecom-cli` 系列 skill（文档/表格/消息/日程等），不走通用网页抓取（抓不到，只得空壳）。
-- 公开内容平台（公众号/知乎/雪球/小红书）→ `chinese-content-extract`。
-- 其余公开网页 → `WebFetch`。
+- 企微域名（`doc.weixin.qq.com`、`page.weixin.qq.com` 等）→ `wecomcli-*` 系列 skill（文档/表格/消息/日程等），不走通用网页抓取（抓不到，只得空壳）。
+- 公开内容平台（公众号/知乎/雪球/小红书）→ `chinese-content-extract` skill。
+- 其余公开网页 → 联网抓取。
 
 ## 会话启动检查
-进仓库先静默检查 `CLAUDE.md` / `PLAN.md`，缺就问要不要 `/repo-init`。
+进仓库先静默检查项目指令文件（`CLAUDE.md` / `AGENTS.md`）与 `PLAN.md`，缺就问要不要用 `repo-init` skill 脚手架。
