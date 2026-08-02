@@ -1,19 +1,19 @@
 ---
 name: chinese-content-extract
-description: "当用户发送 mp.weixin.qq.com、zhihu.com、xueqiu.com、xiaohongshu.com 或 xhslink.com 链接，或说了「总结这篇/看看这个/帮我看这个链接/这文章讲什么/这篇文章」时，调用本 skill 的 scripts/fetch.py 抓取内容。不适用：用户要搜索信息或打开网页交互。"
+description: "抓取**公开内容平台文章**：当用户发送 mp.weixin.qq.com（公众号）、zhihu.com、xueqiu.com、xiaohongshu.com 或 xhslink.com 等公开链接，或对某篇公开网页文章说「总结这篇/看看这个/帮我看这个链接/这文章讲什么/这篇文章」时，调用本 skill 的 scripts/fetch.py 抓取内容。仅限可公开访问的网页文章。不适用：用户要搜索信息或打开网页交互。"
 version: 3.0.0
 tags: [content, extraction, chinese, wechat, zhihu, xueqiu, xiaohongshu, article, summary]
 ---
 
 <when_to_use>
-用户发送以下链接时调用：
+用户发送以下**公开内容平台**链接时调用：
 - mp.weixin.qq.com（微信公众号）
 - zhihu.com（知乎专栏/问答）
 - xueqiu.com（雪球）
 - xiaohongshu.com / xhslink.com（小红书）
-- 其他网页链接（通用 fallback）
+- 其他**可公开访问的网页文章**
 
-用户说「总结这篇/看看这个/这文章/帮我看」时也调用。
+用户对某篇公开文章说「总结这篇/看看这个/帮我看」时也调用。
 消息不含 URL 但有「这篇/上面那篇/刚才那个」指代 → 先查记忆找最近链接，再调用。
 </when_to_use>
 
